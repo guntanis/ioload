@@ -32,15 +32,15 @@ if command -v python3 &> /dev/null; then
     echo -e "${GREEN}✓${NC} Found: $PYTHON_VERSION"
 else
     echo -e "${RED}✗${NC} Python 3 not found!"
-    echo "Please install Python 3.6 or higher and try again."
+    echo "Please install Python 3.8 or higher and try again."
     exit 1
 fi
 
-# Check Python version (3.6+)
+# Check Python version (3.8+)
 PYTHON_MAJOR=$(python3 -c 'import sys; print(sys.version_info.major)')
 PYTHON_MINOR=$(python3 -c 'import sys; print(sys.version_info.minor)')
-if [ "$PYTHON_MAJOR" -lt 3 ] || ([ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -lt 6 ]); then
-    echo -e "${RED}✗${NC} Python 3.6 or higher is required. Found: $PYTHON_VERSION"
+if [ "$PYTHON_MAJOR" -lt 3 ] || ([ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -lt 8 ]); then
+    echo -e "${RED}✗${NC} Python 3.8 or higher is required. Found: $PYTHON_VERSION"
     exit 1
 fi
 

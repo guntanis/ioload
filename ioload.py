@@ -21,7 +21,7 @@ except ImportError:
     asciichart = None
 
 # Constants
-MIN_PYTHON_VERSION = (3, 6)
+MIN_PYTHON_VERSION = (3, 8)
 MAX_HISTORY = 60
 MIN_INTERVAL = 0.1
 MAX_INTERVAL = 60.0

@@ -21,7 +21,7 @@ chmod +x install.sh
 
 ## What the Installer Does
 
-1. ✅ Checks for Python 3.6+
+1. ✅ Checks for Python 3.8+
 2. ✅ Checks for pip
 3. ✅ Checks for iostat (warns if not found)
 4. ✅ Downloads `ioload.py` to `~/.local/bin/`
@@ -33,7 +33,7 @@ chmod +x install.sh
 
 If you prefer to install manually:
 
-1. **Install Python 3.6+** from [python.org](https://www.python.org/downloads/)
+1. **Install Python 3.8+** from [python.org](https://www.python.org/downloads/)
 
 2. **Install dependencies:**
    ```bash

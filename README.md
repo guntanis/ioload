@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/guntanis/ioload/workflows/CI/badge.svg)](https://github.com/guntanis/ioload/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyPI version](https://badge.fury.io/py/ioload.svg)](https://badge.fury.io/py/ioload)
 
 A wrapper for `iostat` that displays I/O statistics in a real-time chart format similar to `nload`, with the ability to switch between devices using keyboard navigation.
@@ -27,9 +27,17 @@ A wrapper for `iostat` that displays I/O statistics in a real-time chart format 
 - Switch between devices using `<` (previous) and `>` (next) keys
 - Clean, terminal-based interface using curses
 
+## Used by
+
+- Ring.cr
+
+## Sponsored by
+
+- Ring.cr
+
 ## Requirements
 
-- Python 3.6+
+- Python 3.8+
 - `iostat` command (part of `sysstat` package)
   - On macOS: `brew install sysstat`
   - On Linux: Usually pre-installed or available via package manager
