@@ -49,12 +49,12 @@ echo -n "Checking for pip... "
 if command -v pip3 &> /dev/null; then
     echo -e "${GREEN}✓${NC}"
     PIP_CMD="pip3"
-elif python3 -m pip --version &> /dev/null; then
+elif python3 -m pip --version &> /dev/null 2>&1; then
     echo -e "${GREEN}✓${NC}"
     PIP_CMD="python3 -m pip"
 else
     echo -e "${YELLOW}⚠${NC} pip not found. Attempting to install..."
-    python3 -m ensurepip --upgrade || {
+    python3 -m ensurepip --upgrade 2>/dev/null || {
         echo -e "${RED}✗${NC} Could not install pip. Please install pip manually."
         exit 1
     }
@@ -117,12 +117,58 @@ echo -e "${GREEN}✓${NC} Made executable"
 
 # Install Python dependencies
 echo -n "Installing Python dependencies... "
-if [ -f "requirements.txt" ]; then
-    $PIP_CMD install --user -q -r requirements.txt
+
+# Temporarily disable exit on error for this section
+set +e
+
+# Function to try installing with different methods
+install_dependency() {
+    local pkg=$1
+    # Method 1: Try --user (works on most systems)
+    if $PIP_CMD install --user -q "$pkg" 2>/dev/null; then
+        return 0
+    fi
+    # Method 2: Try --user --break-system-packages (for externally-managed environments)
+    if $PIP_CMD install --user --break-system-packages -q "$pkg" 2>/dev/null; then
+        return 0
+    fi
+    # Method 3: Try without --user but with --break-system-packages (last resort, requires write access)
+    if $PIP_CMD install --break-system-packages -q "$pkg" 2>/dev/null; then
+        return 0
+    fi
+    return 1
+}
+
+# Try to install asciichartpy
+if install_dependency "asciichartpy"; then
+    echo -e "${GREEN}✓${NC}"
 else
-    $PIP_CMD install --user -q asciichartpy
+    # If all methods failed, show helpful error
+    echo -e "${RED}✗${NC}"
+    echo ""
+    echo -e "${YELLOW}Installation failed due to externally-managed Python environment.${NC}"
+    echo ""
+    echo "Please install manually using one of these methods:"
+    echo ""
+    echo "  Method 1 (Recommended - User install):"
+    echo "    $PIP_CMD install --user --break-system-packages asciichartpy"
+    echo ""
+    echo "  Method 2 (If pipx is available):"
+    echo "    pipx install asciichartpy"
+    echo ""
+    echo "  Method 3 (System-wide, requires sudo):"
+    echo "    sudo $PIP_CMD install --break-system-packages asciichartpy"
+    echo ""
+    read -p "Continue anyway? (ioload will not work without asciichartpy) [y/N]: " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Installation cancelled. Please install asciichartpy manually and run this script again."
+        exit 1
+    fi
 fi
-echo -e "${GREEN}✓${NC}"
+
+# Re-enable exit on error
+set -e
 
 # Check if INSTALL_DIR is in PATH
 if [[ ":$PATH:" != *":$INSTALL_DIR:"* ]]; then

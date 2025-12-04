@@ -13,7 +13,7 @@ A wrapper for `iostat` that displays I/O statistics in a real-time chart format 
 - **Multiple chart views** - IOPS, Throughput, Utilization, and Wait Times
 - **Keyboard navigation** - Switch devices and views with arrow keys
 - **Color-coded charts** - Easy-to-read terminal charts with color support
-- **Cross-platform** - Works on Linux and macOS
+- **Cross-platform** - Works on Linux and macOS (Unix-like systems)
 - **Lightweight** - Minimal dependencies, fast startup
 
 ## Features
@@ -40,17 +40,9 @@ A wrapper for `iostat` that displays I/O statistics in a real-time chart format 
 
 ### Quick Install (Recommended)
 
-**Unix/macOS/Linux:**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/guntanis/ioload/main/scripts/install.sh | bash
 ```
-
-**Windows (PowerShell):**
-```powershell
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/guntanis/ioload/main/scripts/install.ps1 -OutFile install.ps1; .\install.ps1
-```
-
-> **Note:** Replace `yourusername` with your actual GitHub username in the URLs above.
 
 ### Manual Installation
 

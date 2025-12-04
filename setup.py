@@ -54,6 +54,7 @@ setup(
         "Programming Language :: Python :: 3.12",
         "Operating System :: POSIX :: Linux",
         "Operating System :: MacOS",
+        "Operating System :: Unix",
         "Environment :: Console :: Curses",
     ],
     keywords="iostat monitoring io statistics terminal curses chart",

@@ -2,17 +2,15 @@
 
 ## Quick Install
 
-### Unix/macOS/Linux
-
 **One-liner:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/yourusername/ioload/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/guntanis/ioload/main/scripts/install.sh | bash
 ```
 
 **Or step by step:**
 ```bash
 # Download the installer
-curl -fsSL https://raw.githubusercontent.com/yourusername/ioload/main/install.sh -o install.sh
+curl -fsSL https://raw.githubusercontent.com/guntanis/ioload/main/scripts/install.sh -o install.sh
 
 # Make it executable
 chmod +x install.sh
@@ -21,28 +19,12 @@ chmod +x install.sh
 ./install.sh
 ```
 
-### Windows (PowerShell)
-
-**One-liner:**
-```powershell
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/yourusername/ioload/main/install.ps1 -OutFile install.ps1; .\install.ps1
-```
-
-**Or step by step:**
-```powershell
-# Download the installer
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/yourusername/ioload/main/install.ps1 -OutFile install.ps1
-
-# Run it
-.\install.ps1
-```
-
 ## What the Installer Does
 
 1. ✅ Checks for Python 3.6+
 2. ✅ Checks for pip
 3. ✅ Checks for iostat (warns if not found)
-4. ✅ Downloads `ioload.py` to `~/.local/bin/` (Unix) or `%LOCALAPPDATA%\Programs\ioload` (Windows)
+4. ✅ Downloads `ioload.py` to `~/.local/bin/`
 5. ✅ Installs Python dependencies (`asciichartpy`)
 6. ✅ Makes the script executable
 7. ✅ Adds installation directory to PATH (with your permission)
@@ -62,7 +44,6 @@ If you prefer to install manually:
    - macOS: `brew install sysstat`
    - Ubuntu/Debian: `sudo apt-get install sysstat`
    - RHEL/CentOS: `sudo yum install sysstat`
-   - Windows: Not available (use WSL or Linux)
 
 4. **Download ioload.py:**
    ```bash

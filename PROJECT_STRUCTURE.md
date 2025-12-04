@@ -13,8 +13,7 @@ ioload/
 │   ├── ROADMAP.md          # Future plans
 │   └── POPULARITY_CHECKLIST.md  # Growth guide
 ├── scripts/                 # Installation scripts
-│   ├── install.sh          # Unix/macOS/Linux installer
-│   └── install.ps1         # Windows installer
+│   └── install.sh          # Unix/macOS/Linux installer
 ├── tests/                   # Test files
 │   ├── __init__.py
 │   └── test_ioload.py      # Unit tests
@@ -57,7 +56,6 @@ Additional documentation beyond the main README:
 ### `scripts/`
 Installation and utility scripts:
 - **install.sh** - Automated installer for Unix/macOS/Linux
-- **install.ps1** - Automated installer for Windows
 
 ### `tests/`
 Test files (currently minimal, to be expanded):

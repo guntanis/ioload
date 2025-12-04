@@ -27,7 +27,6 @@ This document outlines the planned features and improvements for ioload.
 - [ ] Alerting/notification system
 - [ ] Plugin system for custom metrics
 - [ ] Integration with monitoring systems (Prometheus, etc.)
-- [ ] Windows support (using alternative to iostat)
 - [ ] Docker container support
 - [ ] Kubernetes integration
 

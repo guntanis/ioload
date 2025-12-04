@@ -20,11 +20,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Optimized for performance and maintainability
 - Improved error handling and portability
 
-## [1.0.0] - 2024-XX-XX
+## [1.0.0] - 2025-12-03
 
 ### Added
 - Initial public release
-- Installation scripts for Unix and Windows
+- Installation script for Unix-like systems
 - Comprehensive documentation
 
 [Unreleased]: https://github.com/guntanis/ioload/compare/v1.0.0...HEAD
